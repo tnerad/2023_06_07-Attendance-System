@@ -1,0 +1,38 @@
+<h1>Student Attendance</h1>
+
+<div>
+  <!-- Form to receive a new record of attendance -->
+  <%=form_with(model: @records, url: grid_update_attendance_path) do |form| %>
+    <!-- Student name  -->
+    <%= form.label :student, 'Student Name' %>
+    <%= form.text_field :student %>
+    <br><br><!-- Attended time  -->
+    <%= form.label :time_attended, 'Time Attended' %>
+    <%= form.number_field :time_attended %>
+    <br><br><!-- Date of attendance  -->
+    <%= form.label :date, 'Date' %>
+    <%= form.date_field :date %>
+    <br><br><!-- Submit button  -->
+    <%= form.submit 'Submit new Record' %>
+  <% end %>
+  <br>
+  <!-- Table to list all the records in it -->
+  <table>
+    <thead>
+    <tr>
+      <th>Student Name</th>
+      <th>Attendance</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @records.each do |contrib| %>
+        <tr>
+          <td><%= contrib.student %></td>
+          <td><%= contrib.time_attended %></td>
+          <td><%= contrib.date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
