@@ -31,8 +31,9 @@
           <td><%= contrib.student %></td>
           <td><%= contrib.time_attended %></td>
           <td><%= contrib.date %></td>
+          <td><%= button_to 'Delete', grid_delete_item_path(contrib_id: contrib.id), method: :delete %></td>
         </tr>
-      <% end %>
+    <% end %>
     </tbody>
   </table>
 </div>

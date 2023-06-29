@@ -1,0 +1,13 @@
+<h1>Enter the student to view his total time attended</h1>
+
+<%= form_tag(grid_summary_path, method: :get) do %>
+  <%= label_tag :student, 'Student name' %>
+  <%= text_field_tag :student %>
+  <%= submit_tag 'Return summed value'%>
+<% end %>
+
+<% if @total_time_attended != nil %>
+  <br>
+  <p>Selected student: <%= @student_name %></p>
+  <p>Total Time Attended: <%= @total_time_attended %></p>
+<% end %>
