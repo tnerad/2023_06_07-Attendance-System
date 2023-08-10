@@ -1,0 +1,8 @@
+<h1>Root page</h1>
+<ul>
+  <li><%= button_to 'attendance.html.erb', grid_attendance_path, method: :get %></li>
+  <li><%= button_to 'classroom.html.erb', grid_classroom_path, method: :get %></li>
+  <li>Summary is reworked -- go to classroom.html.erb and click the link for the desired student<% button_to 'summary.html.erb', grid_summary_path, method: :get %></li>
+
+  <!--<li><% button_to 'index.html.erb', root_path, method: :get %></li>-->
+</ul>

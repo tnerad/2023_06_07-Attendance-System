@@ -1,0 +1,33 @@
+<h1>Students Classroom</h1>
+
+<div>
+  <!-- Form to receive a new Student as a record -->
+  <%=form_with(model: @students, url: grid_add_new_student_path) do |form| %>
+    <!-- Student name  -->
+    <%= form.label :student, 'Student Name' %>
+    <%= form.text_field :student %>
+    <br><br><!-- Submit button -->
+    <%= form.submit 'Submit new Record' %>
+  <% end %>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Student Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.id %></td>
+        <td><%= student.student %></td>
+        <td><%= link_to 'Edit', grid_edit_student_path(student) %></td>
+        <td><%= link_to 'Total Time Attended', grid_total_attendance_path(student) %></td>
+        <td><%= button_to 'Delete', grid_delete_student_path(student_id: student.id), method: :delete %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<br><br><%= button_to 'index.html.erb', root_path, method: :get %>

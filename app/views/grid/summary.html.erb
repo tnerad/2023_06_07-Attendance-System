@@ -1,13 +1,17 @@
 <h1>Enter the student to view his total time attended</h1>
 
-<%= form_tag(grid_summary_path, method: :get) do %>
-  <%= label_tag :student, 'Student name' %>
-  <%= text_field_tag :student %>
-  <%= submit_tag 'Return summed value'%>
+
+<%= form_with(url: grid_summary_path, method: :get) do |f| %>
+<% #form_for :student, url: grid_show_summary_path(student_id: @student.id), method: :post do |f| %>
+  <%= f.label :student_id, 'Student name' %>
+  <%= f.collection_select :id, Student.all, :id, :student, { prompt: "Select a Student" } %>
+  <% #@name = Student.student %>
+  <%= f.submit 'Return summed value'#, @name %>
 <% end %>
 
 <% if @total_time_attended != nil %>
   <br>
-  <p>Selected student: <%= @student_name %></p>
-  <p>Total Time Attended: <%= @total_time_attended %></p>
+  <p>Selected student: <%= #@selected_student %></p>
+  <p>Total Time Attended: <%= #@total_time_attended %></p>
 <% end %>
+<br><br><%= button_to 'index.html.erb', root_path, method: :get %>

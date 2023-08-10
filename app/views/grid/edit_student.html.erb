@@ -1,0 +1,12 @@
+<h1>Edit Student</h1>
+
+<div>
+  <!-- Form to receive a new record of attendance -->
+  <%=form_with(model: @students, url: grid_update_student_path) do |form| %>
+    <!-- Student name  -->
+    <%= form.label :student, 'Student Name' %>
+    <%= form.text_field :student %>
+    <%= form.submit 'Update Student' %>
+  <% end %>
+</div>
+<br><br><%= button_to 'index.html.erb', root_path, method: :get %>
